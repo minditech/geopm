@@ -234,6 +234,11 @@ namespace geopm
         return (topology()->num_domain(m_imp->power_control_domain()));
     }
 
+    double Platform::tdp(void) const
+    {
+        return m_imp->package_tdp();
+    }
+
     void Platform::tdp_limit(int percentage) const
     {
         //Get the TDP for each socket and set its power limit to match

@@ -64,6 +64,9 @@ namespace geopm
             /// @brief Retrieve the string name of the hw platform.
             /// @return The hw platform name.
             void name(std::string &plat_name) const;
+            /// @brief Retrieve the Thermal Design Power (TDP).
+            /// @return The TDP.
+            double tdp(void) const;
             /// @brief Set the power limit of the CPUs to a percentage of
             /// Thermal Design Power (TDP).
             /// @param [in] percentage The percentage of TDP.
