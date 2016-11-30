@@ -47,7 +47,7 @@ struct MSRTherm {
         static uint64_t sockets = 0;
         if(!sockets) sockets = num_sockets();
         read_batch(TEMP_TARGET);
-        for (int i = 0; i < sockets; i++) {
+        for (size_t i = 0; i < sockets; i++) {
             // Minimum temperature at which PROCHOT will be asserted in degree
             // Celsius (probably the TCC Activation Temperature).
             s->temp_target[i] = MASK_VAL(*s->raw[i], 23, 16);
@@ -58,7 +58,7 @@ struct MSRTherm {
         uint64_t sockets = num_sockets();
 
         read_batch(PKG_THERM_STAT);
-        for (int i = 0; i < sockets; i++) {
+        for (size_t i = 0; i < sockets; i++) {
             // Indicates whether the digital thermal sensor high-temp output signal
             // (PROCHOT#) for the pkg currently active. (1=active)
             s->status[i] = MASK_VAL(*s->raw[i], 0, 0);
